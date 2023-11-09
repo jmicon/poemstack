@@ -10,7 +10,7 @@ require('dotenv').config()
 const postRoutes = require('./routes/postRoutes')
 const userRoutes = require('./routes/userRoutes')
 const clerkRoutes = require('./routes/clerk')
-const testing = require('./routes/testing')
+// const testing = require('./routes/testing')
 
 const app = express()
 const User = require('./models/userModel')
@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_CONNECT_LINK)
 app.use('/posts', postRoutes)
 app.use('/users', userRoutes)
 app.use('/clerk', clerkRoutes)
-app.use('/testing', testing)
+// app.use('/testing', testing)
 
 app.get('/', (req, res) => {
     res.send("hiis")
