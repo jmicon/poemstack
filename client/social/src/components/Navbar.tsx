@@ -4,7 +4,7 @@ import { SignedIn, SignedOut, useUser, UserButton } from "@clerk/clerk-react";
 const Navbar = () => {
     const navigate = useNavigate();
 
-    const { isLoaded, isSignedIn, user } = useUser();
+    const { user } = useUser();
 
     return (
         <nav className="flex justify-between px-3 py-1 max-w-[1279px] m-auto">
