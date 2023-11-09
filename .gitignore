@@ -1,6 +1,0 @@
-server/.env
-server/routes/testing.js
-client/social/.env
-client/social/.env.local
-gitignore
-tempusers.txt
