@@ -41,10 +41,10 @@ interface UserData {
 
 const Profile: FC = () => {
     let { username } = useParams();
-    const { isLoaded: userLoaded, isSignedIn, user } = useUser();
-    const { isLoaded: authLoaded, userId, getToken } = useAuth();
+    const { isLoaded: userLoaded, user } = useUser();
+    const { isLoaded: authLoaded } = useAuth();
 
-    const [currentUser, setCurrentUser] = useState(false)
+    const [, setCurrentUser] = useState(false)
     const [feedPage, setFeedPage] = useState(0)
 
     const navigate = useNavigate();
@@ -59,9 +59,9 @@ const Profile: FC = () => {
         if (username === user?.username) setCurrentUser(true)
     }, [authLoaded, userLoaded])
 
-    const [poemData, poemLoading, poemError] = useFetch<PostData[] | []>(`${import.meta.env.VITE_API}/posts/single-user-posts/${username}`, [])
+    const [poemData] = useFetch<PostData[] | []>(`${import.meta.env.VITE_API}/posts/single-user-posts/${username}`, [])
 
-    const [userData, userLoading, userError] = useFetch<UserData | Object>(`${import.meta.env.VITE_API}/users/single-user-data/${username}`, {})
+    const [userData] = useFetch<UserData | Object>(`${import.meta.env.VITE_API}/users/single-user-data/${username}`, {})
 
     const fetchMorePosts = (url: string) => {
         const nextPage = feedPage + 1

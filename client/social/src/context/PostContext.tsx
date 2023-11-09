@@ -26,7 +26,7 @@ interface Values {
     getNewPagePosts: (url: string, pageNumber: number, searchContent?: string) => Promise<void>
 }
 
-export const PostsContext = createContext<Values>(null);
+export const PostsContext = createContext<Values>(null!);
 
 type ContextProviderProps = {
     children: React.ReactNode

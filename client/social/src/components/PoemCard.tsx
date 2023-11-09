@@ -1,8 +1,8 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { SignedIn, useUser, useAuth } from "@clerk/clerk-react";
-import useFetch from '../hooks/useFetch';
+import { useUser, useAuth } from "@clerk/clerk-react";
 import { PostsContext } from '../context/PostContext';
+// props createdAt, updatedAt
 
 type Props = {
     poem: string
@@ -16,12 +16,12 @@ type Props = {
     _id: string
 }
 
-const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username, favorites, createdAt, updatedAt, _id }) => {
+const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username, favorites, _id }) => {
     const navigate = useNavigate();
-    const { isLoaded: authLoaded, userId, getToken } = useAuth();
-    const { isLoaded: userLoaded, isSignedIn, user } = useUser();
+    const { getToken } = useAuth();
+    const { isLoaded: userLoaded, user } = useUser();
     const [favorited, setFavorited] = useState(false)
-    const [menu, setMenu] = useState(false)
+    // const [menu, setMenu] = useState(false)
     const [copied, setCopied] = useState(false)
 
     const { deleteOnePost } = useContext(PostsContext)
