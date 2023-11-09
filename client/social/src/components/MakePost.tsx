@@ -24,7 +24,7 @@ const MakePost: FC<Props> = ({ author }: Props) => {
     useEffect(resizeTextArea, [post])
 
     const makePost = async () => {
-        const response = await fetch('http://localhost:3000/posts/new-post', {
+        const response = await fetch(`${import.meta.env.VITE_API}/posts/new-post`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

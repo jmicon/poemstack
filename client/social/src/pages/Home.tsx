@@ -26,18 +26,18 @@ export default function Home() {
     const [feedPage, setFeedPage] = useState(0)
     const [searchText, setSearchText] = useState("")
 
-    const [postData] = useFetch<PostData[] | []>('http://localhost:3000/posts/all-recent-posts?p=0', [])
+    const [postData] = useFetch<PostData[] | []>(`${import.meta.env.VITE_API}/posts/all-recent-posts?p=0`, [])
 
     const { posts, currentPostsURL, getPosts, addNewPagePosts } = useContext(PostsContext)
 
     useEffect(() => {
         setFeedPage(0)
-        getPosts(`http://localhost:3000/posts/all-recent-posts?p=${feedPage}`, 'http://localhost:3000/posts/all-recent-posts')
+        getPosts(`${import.meta.env.VITE_API}/posts/all-recent-posts?p=${feedPage}`, `${import.meta.env.VITE_API}/posts/all-recent-posts`)
     }, [])
 
     useEffect(() => {
         setFeedPage(0)
-        getPosts(`http://localhost:3000/posts/search?p=${feedPage}&s=${searchText}`, 'http://localhost:3000/posts/search')
+        getPosts(`${import.meta.env.VITE_API}/posts/search?p=${feedPage}&s=${searchText}`, `${import.meta.env.VITE_API}/posts/search`)
     }, [searchText])
 
     const fetchMorePosts = (url: string) => {

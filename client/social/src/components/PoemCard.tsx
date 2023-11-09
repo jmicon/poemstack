@@ -31,7 +31,7 @@ const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username
 
     useEffect(() => {
         const getCurrentUser = async () => {
-            const response = await fetch(`http://localhost:3000/users/single-user-data-auth/${user?.username}`, {
+            const response = await fetch(`${import.meta.env.VITE_API}/users/single-user-data-auth/${user?.username}`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -48,12 +48,12 @@ const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username
             else {
                 setFavorited(false)
             }
+            getCurrentUser()
         }
-        getCurrentUser()
     }, [userLoaded])
 
     const favoritePost = async () => {
-        const response = await fetch('http://localhost:3000/posts/favorite-post', {
+        const response = await fetch(`${import.meta.env.VITE_API}/posts/favorite-post`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username
     }
 
     const deletePost = async () => {
-        const response = await fetch('http://localhost:3000/posts/delete', {
+        const response = await fetch(`${import.meta.env.VITE_API}/posts/delete`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

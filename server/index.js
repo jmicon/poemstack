@@ -1,7 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors');
-const { ClerkExpressWithAuth } = require("@clerk/clerk-sdk-node");
+const { ClerkExpressWithAuth } = require("@clerk/clerk-sdk-node")
+
+const port = 4000 || process.env.PORT
 
 require('dotenv').config()
 
@@ -23,7 +25,7 @@ app.use(cors({
 // connect to database and local server
 mongoose.connect(process.env.MONGO_CONNECT_LINK)
     .then(() => {
-        app.listen(3000, () => console.log('connected to database and running on http://localhost:3000'))
+        app.listen(port, () => console.log(`connected to database and running on http://localhost:${port}`))
     })
 
 // app.use('/user', userRoutes)

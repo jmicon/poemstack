@@ -26,7 +26,7 @@ interface PostError {
 const Post = () => {
     let { postID } = useParams()
 
-    const [poemData, poemLoading] = useFetch<PostData | PostError | {}>(`http://localhost:3000/posts/single/${postID}`, {})
+    const [poemData, poemLoading] = useFetch<PostData | PostError | {}>(`${import.meta.env.VITE_API}/posts/single/${postID}`, {})
 
     return (
         <>

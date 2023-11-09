@@ -4,7 +4,7 @@ require('dotenv').config()
 const User = require('../models/userModel')
 const Svix = require('svix');
 
-router.post('/clerkSync', async (req, res) => {
+router.post('/clerk-sync', async (req, res) => {
     try {
         const { username, id, first_name, last_name, image_url } = req.body.data
         const { type } = req.body

@@ -52,16 +52,16 @@ const Profile: FC = () => {
     const { posts, currentPostsURL, getPosts, addNewPagePosts } = useContext(PostsContext)
 
     useEffect(() => {
-        getPosts(`http://localhost:3000/posts/single-user-posts/${username}`, 'http://localhost:3000/posts/single-user-posts')
+        getPosts(`${import.meta.env.VITE_API}/posts/single-user-posts/${username}`, `${import.meta.env.VITE_API}/posts/single-user-posts`)
     }, [])
 
     useEffect(() => {
         if (username === user?.username) setCurrentUser(true)
     }, [authLoaded, userLoaded])
 
-    const [poemData, poemLoading, poemError] = useFetch<PostData[] | []>(`http://localhost:3000/posts/single-user-posts/${username}`, [])
+    const [poemData, poemLoading, poemError] = useFetch<PostData[] | []>(`${import.meta.env.VITE_API}/posts/single-user-posts/${username}`, [])
 
-    const [userData, userLoading, userError] = useFetch<UserData | Object>(`http://localhost:3000/users/single-user-data/${username}`, {})
+    const [userData, userLoading, userError] = useFetch<UserData | Object>(`${import.meta.env.VITE_API}/users/single-user-data/${username}`, {})
 
     const fetchMorePosts = (url: string) => {
         const nextPage = feedPage + 1
