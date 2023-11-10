@@ -23,10 +23,15 @@ app.use(cors({
 }))
 
 // connect to database and local server
-mongoose.connect(process.env.MONGO_CONNECT_LINK)
-    .then(() => {
-        app.listen(port, () => console.log(`connected to database and running on http://localhost:${port}`))
-    })
+try {
+    mongoose.connect(process.env.MONGO_CONNECT_LINK)
+        .then(() => {
+            app.listen(port, () => console.log(`connected to database and running on http://localhost:${port}`))
+        })
+} catch (error) {
+    console.log(error);
+    process.exit(1)
+}
 
 // app.use('/user', userRoutes)
 app.use('/posts', postRoutes)
