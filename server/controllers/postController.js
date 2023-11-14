@@ -6,6 +6,8 @@ const newPost = async (req, res) => {
     const { author, content } = req.body
     const { username } = req.auth.claims
 
+    if (content.length > 400) return res.json({ error: "too many characters" })
+
     const currentUser = await User.findOne({ username })
 
     try {

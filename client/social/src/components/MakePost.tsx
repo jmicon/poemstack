@@ -38,6 +38,7 @@ const MakePost: FC<Props> = ({ author }: Props) => {
         })
 
         const data = await response.json()
+        if (!!data.error) return console.log(data.error);
         addPost(data)
         setPost("")
     }

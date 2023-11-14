@@ -6,7 +6,7 @@ const userSchema = require('./userModel');
 const postSchema = new Schema({
     content: {
         type: String,
-        maxlength: 250,
+        maxlength: 400,
         required: true
     },
     author: {

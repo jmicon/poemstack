@@ -57,7 +57,7 @@ export default function Home() {
             <Navbar />
             <div className='flex center content-center flex-col text-center max-w-3xl m-auto px-1'>
                 <h1 className='text-6xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text antialiased mt-4 sm:text-4xl md:text-5xl'> <span>Discover and Share</span><br />Short Poems</h1>
-                <p className='my-4'>Souls entwine through prose and rhyme, a digital canvas for bards to chime.</p>
+                <p className='my-4'></p>
                 <div className='flex justify-center' >
                     <input
                         value={searchText}

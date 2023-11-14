@@ -112,9 +112,6 @@ const Profile: FC = () => {
                             {posts.length === 0 ? <div className='text-xl flex justify-center'>No posts</div> : <Feed poemData={posts} />}
                         </InfiniteScroll>
                     </>
-                    :
-                    <div>loading</div>
-
                 </div>
             </ section>
         </div>
