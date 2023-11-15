@@ -48,8 +48,8 @@ const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username
             else {
                 setFavorited(false)
             }
-            getCurrentUser()
         }
+        getCurrentUser()
     }, [userLoaded])
 
     const favoritePost = async () => {
