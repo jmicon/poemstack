@@ -152,7 +152,7 @@ const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username
                         <div className={`${copied ? 'opacity-80 bg-gradient-to-r from-cyan-500 to-blue-500 text-white' : 'opacity-0 bg-gradient-to-br from-transparent to-cyan-500 text-transparent'} text-transparent rounded-lg duration-300 ease-in-out absolute bottom-7 right-0 p-2 w-28 text-center`}>Link copied</div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 duration-200 stroke-slate-600 hover:stroke-slate-400" onClick={e => {
                             cardClick(e)
-                            navigator.clipboard.writeText(`http://localhost:5173/post/${_id}`)
+                            navigator.clipboard.writeText(`${import.meta.env.VITE_SITE_URL}/${_id}`)
                             setCopied(true)
                             setTimeout(() => {
                                 setCopied(false)

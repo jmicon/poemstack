@@ -86,7 +86,9 @@ const Profile: FC = () => {
                     <SignedIn>
                         {userLoaded && user?.username === username ? <button onClick={() => navigate('/user/settings')} className='px-3 py-1 my-3 border border-blue-400 text-blue-400 rounded-md min-w-[6rem] duration-150 hover:bg-blue-400 hover:text-white'>Edit Profile</button> : <></>}
                     </ SignedIn>
-                    <div className='text-2xl'>{(userData as UserData).firstName}</div>
+                    <div className='text-2xl'>{(userData as UserData).firstName}
+                        <span> {(userData as UserData).lastName}</span>
+                    </div>
                     <div className='text-slate-500 mb-4'>@{(userData as UserData).username}</div>
                     <div className='px-4'>{(userData as UserData).bio}</div>
                 </div>
