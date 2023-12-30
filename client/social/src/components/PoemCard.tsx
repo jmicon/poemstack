@@ -106,12 +106,12 @@ const PoemCard: FC<Props> = ({ poem, profileImage, firstName, lastName, username
         }}>
             <div className='flex justify-between'>
                 <div className='flex mb-2'>
-                    <img src={profileImage} alt="profile-img" width='50px' height='auto' className='mx-2 grid-cols rounded-full drop-shadow-md cursor-pointer aspect-square object-cover' onClick={e => {
+                    <img src={profileImage} alt="profile-img" width='50px' height='auto' className='mx-2 grid-cols rounded-full drop-shadow-md cursor-pointer aspect-square object-cover hover:opacity-80 hover:scale-105 duration-100 ' onClick={e => {
                         navigate(`/profile/${username}`)
                         cardClick(e)
                     }} />
                     <div className='mx-2 flex flex-col'>
-                        <div className='cursor-pointer' onClick={e => {
+                        <div className='cursor-pointer hover:opacity-75' onClick={e => {
                             navigate(`/profile/${username}`)
                             cardClick(e)
                         }}>{firstName} {lastName}</div>

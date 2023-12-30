@@ -62,7 +62,7 @@ export default function Home() {
                     <input
                         value={searchText}
                         onChange={e => setSearchText(e.target.value)}
-                        className='shadow-lg  max-w-xl w-full px-2 py-4 mt-6 focus:outline-none mx-3'
+                        className='shadow-lg  max-w-xl w-full px-2 py-4 mt-6 focus:outline-cyan-500 mx-3'
                         type="text"
                         placeholder='Search poems'
                     />
